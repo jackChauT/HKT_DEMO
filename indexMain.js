@@ -6,11 +6,11 @@ const http = require('http')
 const ARServer = require('./armRobotServer');
 const UNOServer = require('./unoServer');
 
-const host = "10.129.2.88"
+const host = "192.168.1.128"
 const port = 3333
 const armRobotHost = 5566
 
-const armRobotServer = new ARServer(host, armRobotHost)
+const armRobotServer = new ARServer(host, armRobotHost);
 const unoServer = new UNOServer(host, port);
 let robotArmTimer;
 let onMission = false;
@@ -25,11 +25,7 @@ const server = http.createServer(function(request, response) {
         case "POST":
             switch(request.url) {
                 case "/option":
-                    if (onMission) {
-                        console.log("Option")
-                        successResponse(response, 'Mission is on going')
-                        break;
-                    }
+                    if (isOnMission(response)) {return};
 
                     var isEmptyInput = true
                     request.on('data', function(data) {
@@ -39,14 +35,14 @@ const server = http.createServer(function(request, response) {
                         if (!isValidResult(response, json)) return
                         this.drinkType = json.drink_type
                         this.location = json.location
-                        drinkAndLocationHandler(this.drinkType, this.location)
+                        drinkAndLocationHandler(this.drinkType, true)
                     })
 
                     request.on('end', function() {
                         if (isEmptyInput) {
                             errorResponse(response, "Input is Empty")
                         }
-                        onMission = true;
+                        
                         successResponse(response, 'success')
                     })
                     break;
@@ -61,8 +57,15 @@ const server = http.createServer(function(request, response) {
                     successResponse(response, onMission == true ? 'busy' : 'ready')
                     break;
                 case "/finish":
-                    this.onMission = false;
+                    onMission = false;
                     break;
+                case "/pick":
+                        if (isOnMission(response)) {return};
+                        let option = Math.round(Math.random());
+                        console.log(option)
+                        drinkAndLocationHandler(option, false)
+                        successResponse(response, "success")
+                        break
                 default:
             }
         break;
@@ -71,17 +74,30 @@ const server = http.createServer(function(request, response) {
     }
 })
 
+function isOnMission(response) {
+    if (onMission) {
+        console.log("Option")
+        successResponse(response, 'Mission is on going')
+        return true
+    }
+}
+
 function successResponse(response, content) {
     response.writeHead(200, {'Content-Type': 'text/html'})
     console.log("[Main] Response: ",content)
     response.end(content)
 }
 
-function drinkAndLocationHandler(drink) {
+function drinkAndLocationHandler(drink, isGoToLocation) {
+    onMission = true;
     armRobotServer.startPickDrink(drink).then((res, err) => {
         if (typeof err == "undefined") {
             if (res.status == "200") {
-                robotArmTimer = setInterval(getPickDrinkResult, 1000);
+                if (isGoToLocation) {
+                    robotArmTimer = setInterval(getPickDrinkResult, 1000);
+                } else {
+                    onMission = false;
+                }
             }
         } else {
 
@@ -90,7 +106,6 @@ function drinkAndLocationHandler(drink) {
 }
 
 function getPickDrinkResult() {
-    // var that = this;
     armRobotServer.getStatus().then((res, err) => {
         if (typeof err == "undefined") {
             if (res.status == "200") {
