@@ -1,0 +1,357 @@
+<style>
+@-webkit-keyframes load5 {
+  0%,
+  100% {
+    box-shadow: 0em -2.6em 0em 0em #ffffff, 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.5), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.7);
+  }
+  12.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.7), 1.8em -1.8em 0 0em #ffffff, 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.5);
+  }
+  25% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.5), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.7), 2.5em 0em 0 0em #ffffff, 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+  }
+  37.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.5), 2.5em 0em 0 0em rgba(255, 255, 255, 0.7), 1.75em 1.75em 0 0em #ffffff, 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.5), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.7), 0em 2.5em 0 0em #ffffff, -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+  }
+  62.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.5), 0em 2.5em 0 0em rgba(255, 255, 255, 0.7), -1.8em 1.8em 0 0em #ffffff, -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+  }
+  75% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.5), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.7), -2.6em 0em 0 0em #ffffff, -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+  }
+  87.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.5), -2.6em 0em 0 0em rgba(255, 255, 255, 0.7), -1.8em -1.8em 0 0em #ffffff;
+  }
+}
+@keyframes load5 {
+  0%,
+  100% {
+    box-shadow: 0em -2.6em 0em 0em #ffffff, 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.5), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.7);
+  }
+  12.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.7), 1.8em -1.8em 0 0em #ffffff, 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.5);
+  }
+  25% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.5), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.7), 2.5em 0em 0 0em #ffffff, 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+  }
+  37.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.5), 2.5em 0em 0 0em rgba(255, 255, 255, 0.7), 1.75em 1.75em 0 0em #ffffff, 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.5), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.7), 0em 2.5em 0 0em #ffffff, -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+  }
+  62.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.5), 0em 2.5em 0 0em rgba(255, 255, 255, 0.7), -1.8em 1.8em 0 0em #ffffff, -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+  }
+  75% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.5), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.7), -2.6em 0em 0 0em #ffffff, -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+  }
+  87.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.5), -2.6em 0em 0 0em rgba(255, 255, 255, 0.7), -1.8em -1.8em 0 0em #ffffff;
+  }
+}
+
+
+.btnStart {
+    /* display: block; */
+    height: 160px;
+    width: 160px;
+    background-color: red;
+    border-radius: 50%;
+    border: 1px solid red;
+    opacity: 0;
+    outline: none;
+    font-size: 50px;
+    margin-top: 36%;
+  }
+
+.btnStop {
+  outline: none;
+  position: absolute;
+  width: 125px;
+  height: 125px;
+  z-index: 200;
+  opacity: 0;
+}
+
+.btnPleaseWait {
+  outline: none;
+  position: absolute;
+  width: 125px;
+  height: 125px;
+  z-index: 100;
+  right: 0px;
+  opacity: 0;
+}
+
+.btnFinish {
+    display: block;
+    height: 150px;
+    width: 150px;
+    background-color: greenyellow;
+    border-radius: 50%;
+    border: 1px solid greenyellow;
+    opacity: 0.9;
+    outline: none;
+    font-size: 50px;
+    color: #ffffff;
+    margin-left: 50%;
+    margin-top: 25%;
+    position: absolute;
+    z-index: 15;
+    display: none;
+}
+
+.pleaseWait {
+  position: absolute;
+  color: #ffffff;
+  font-size: 75px;
+  z-index: 101;
+  top: 50%;
+  text-align: center;
+  width: 100%;
+  display: none;
+  /* opacity: 0; */
+}
+
+.stage {
+  position: absolute;
+  color: #ffffff;
+  font-size: 60px;
+  z-index: 10;
+  top: 45%;
+  text-align: center;
+  width: 100%;
+  display: none;
+  /* opacity: 0; */
+}
+
+.textColor {
+    color: red;
+    font-size: 45px;
+}
+
+.loader {
+  /* margin: 100px auto; */
+  margin-left: 50%;
+  top: 50%;
+  font-size: 25px;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  position: absolute;
+  text-indent: -9999em;
+  -webkit-animation: load5 1.1s infinite ease;
+  animation: load5 1.1s infinite ease;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  z-index: 10;
+  display: none;
+}
+
+.loadingBackgroundPleaseWait {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background: rgba(0,0,0,1);
+    z-index: 99;
+    display: none;
+}
+.loadingBackground {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background: rgba(0,0,0,1);
+    z-index: 5;
+    display: none;
+}
+
+.backgroundImage {
+  background: url("{{url_for('static', filename='ui.svg')}}") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+</style>
+
+<html class="backgroundImage">
+    <head>
+    </head>
+    <body style="margin: 0;">
+        <div class="loadingBackground" id="background_loader"></div>
+        <div class="loadingBackgroundPleaseWait" id="background_loader_please_wait"></div>
+        <div class="loader" id="loader">Loading...</div>
+        <div class="pleaseWait" id="please_wait">Please Wait...</div>
+        <div class="stage" id="stage">We are preparing your coffee.<br/>Enjoy!</div>
+        <button class="btnStop" id="stop_button"> Emergency Stop </button>
+        <button class="btnPleaseWait" id="please_wait_button"> Please Wait </button>
+        <!-- <center><button class="btnFinish" id="finish_button"> ✓ </button> </center> -->
+
+        <center><button class="btnStart" id="start_button"> START </button>          </center>
+
+    </body>
+
+    <script>
+        PC_IP = "http://192.168.0.101:5000"
+        not_on_mission = 0
+        stage_1 = "0%"
+        stage_2 = "50%"
+        stage_3 = "100%"
+        current_stage = 1
+
+        const stop_button = document.getElementById('stop_button');
+        const start_button = document.getElementById('start_button');
+
+        isShowPleaseWaitLoader = false;
+
+        stop_button.addEventListener('click', async _ => {
+          try {     
+                fetch(PC_IP + '/action', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        type: 'stop',
+                    })
+                }).then(function(response) {
+                    if (response.status == 200) {
+                        response.text().then(function(result) {
+                          if (result == "success") {
+                            hideLoadingPage()
+                            alert("Robot Stopped, Please wait")
+                          } else {
+                              hideLoadingPage()
+                              alert("Server Error")
+                          }
+                        });
+                    }
+                })
+                .catch(error => console.error('Error:', error))
+                .then(function(myJson) {
+                    // console.log(myJson);
+                });
+            } catch(err) {
+                console.error(`Error: ${err}`);
+            }
+        })
+        
+        
+        start_button.addEventListener('click', async _ => {
+        showLoadingPage()
+        try {     
+            fetch(PC_IP + '/action', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    type: 'start', //start
+                })
+            }).then(function(response) {
+                console.log(response)
+                if (response.status == 200) {
+                    response.text().then(function(result) {
+                        if (result == "success") {
+                            showLoadingPage()
+                        } else {
+                            hideLoadingPage()
+                            alert("Server Error")
+                        }
+                    });
+                }
+            })
+            .catch(error => console.error('Error:', error))
+            .then(function(myJson) {
+                console.log(myJson);
+            });
+            // console.log('Completed!', response);
+        } catch(err) {
+            console.error(`Error: ${err}`);
+        }
+        });
+        
+        function showLoadingPage() {
+            document.getElementById('background_loader').style.display = "block";
+            // document.getElementById('loader').style.display = "block";
+            document.getElementById('stage').style.display = "block";
+        }
+
+        function hideLoadingPage() {
+            document.getElementById('background_loader').style.display = "none";
+            // document.getElementById('loader').style.display = "none";
+            document.getElementById('stage').style.display = "none";
+        }
+
+        function showPleaseWaitLoadingPage() {
+            document.getElementById('background_loader_please_wait').style.display = "block";
+            document.getElementById('please_wait').style.display = "block";
+        }
+
+        function hidePleaseWaitLoadingPage() {
+            document.getElementById('background_loader_please_wait').style.display = "none";
+            document.getElementById('please_wait').style.display = "none";
+        }
+
+        function showFinishButton() {
+          document.getElementById('finish_button').style.display = "block";
+        }
+
+        please_wait_button.addEventListener('click', async _ => {
+          if (isShowPleaseWaitLoader) {
+            hidePleaseWaitLoadingPage()
+          } else {
+            showPleaseWaitLoadingPage()
+          }
+
+          isShowPleaseWaitLoader = !isShowPleaseWaitLoader
+        })
+
+        function getAuboMissionStatus() {
+          console.log("getAuboMissionStatus")
+            try {     
+                fetch(PC_IP + '/action', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        type: 'get_status',
+                    })
+                }).then(function(response) {
+                  if (response.status == 200) {
+                      response.text().then(function(result) {
+                          console.log("Aubo Mission Status: " + result)
+                          if (result == "on_mission") {
+                              showLoadingPage()
+                          } else if (result == "not_on_mission") {
+                              not_on_mission++
+                              if (not_on_mission >= 3 ) {
+                                hideLoadingPage()
+                                not_on_mission = 0
+                              }
+                          } else {
+                              // 
+                          }
+                      });
+                    } 
+                })
+                .catch(error => console.error('Error:', error))
+                .then(function(myJson) {
+                    // console.log(myJson);
+                });
+            } catch(err) {
+                console.error(`Error: ${err}`);
+            }
+        }
+
+        setInterval(getAuboMissionStatus, 1000);
+
+    </script>
+</html>

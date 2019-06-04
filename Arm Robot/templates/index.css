@@ -1,0 +1,14 @@
+.btn {
+    display:block;
+    height: 150px;
+    width: 150px;
+    background-color: red;
+    border-radius: 50%;
+    border: 1px solid red;
+    opacity: 0.8;
+  }
+
+.textColor {
+    color: red;
+    font-size: 45px;
+}
