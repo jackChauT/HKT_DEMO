@@ -11,7 +11,7 @@ const port = 3333
 const armRobotHost = 5566
 
 const armRobotServer = new ARServer(host, armRobotHost)
-const unoServer = new UNOServer();
+const unoServer = new UNOServer(host, port);
 let robotArmTimer;
 let onMission = false;
 
@@ -25,15 +25,21 @@ const server = http.createServer(function(request, response) {
         case "POST":
             switch(request.url) {
                 case "/option":
+                    if (onMission) {
+                        console.log("Option")
+                        successResponse(response, 'Mission is on going')
+                        break;
+                    }
+
                     var isEmptyInput = true
                     request.on('data', function(data) {
                         isEmptyInput = false;
                         var json = JSON.parse(data)
                         console.log("Data: ", json)
                         if (!isValidResult(response, json)) return
-                        drinkType = data.drink_type
-                        location = data.location
-                        drinkAndLocationHandler(json.drink, json.location)
+                        this.drinkType = json.drink_type
+                        this.location = json.location
+                        drinkAndLocationHandler(this.drinkType, this.location)
                     })
 
                     request.on('end', function() {
@@ -54,6 +60,9 @@ const server = http.createServer(function(request, response) {
                     // ready or busy
                     successResponse(response, onMission == true ? 'busy' : 'ready')
                     break;
+                case "/finish":
+                    this.onMission = false;
+                    break;
                 default:
             }
         break;
@@ -69,7 +78,7 @@ function successResponse(response, content) {
 }
 
 function drinkAndLocationHandler(drink) {
-    armRobotServer.startPickDrink('start', drink).then((res, err) => {
+    armRobotServer.startPickDrink(drink).then((res, err) => {
         if (typeof err == "undefined") {
             if (res.status == "200") {
                 robotArmTimer = setInterval(getPickDrinkResult, 1000);
@@ -121,7 +130,7 @@ function errorResponse(response, responseString) {
 try {
     server.listen(port, host)
     unoServer.initServer();
-    console.log(`[Main] Listening at http://${host}:${port} \n`)
+    console.log(`[Main] Listening at http://${host}:${port}`)
 } catch(e) {
     console.log('[Main] Error: ' + e)
 }

@@ -3,7 +3,8 @@ const axios = require('axios');
 module.exports = class ArmRobotServer {
     constructor(host,port) {
         this.host = host;
-        this.port = port;        
+        this.port = port;
+        console.log(`\n[Arm Robot Server] connected`)        
     }
     init() {
         console.log("Init arm robot class")
@@ -20,7 +21,6 @@ module.exports = class ArmRobotServer {
               })
               .catch((error) => {
                 reject(error)
-                // console.error(error)
               })
         })
     }

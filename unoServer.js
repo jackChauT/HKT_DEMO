@@ -24,7 +24,9 @@ location_drink_area_2.msg_data.data.waypoint_coord = point_drink_area_2
 location_drink_area_2.msg_data.data.waypoint_name = "Drink Area 2"
 
 module.exports = class UnoServer { 
-    constructor() {
+    constructor(host, port) {
+        this.host = host;
+        this.port = port;   
         this.ws = new WebSocket('ws://127.0.0.1:8125/tmsmsg');
     }
 
@@ -65,11 +67,7 @@ module.exports = class UnoServer {
                         }, timeout * 1000)
                     } else {
                         console.log("[Uno Server] Finish Count", ++count)
-
-                        axios.post('http://' + this.host + ':' + this.port + '/action', {
-                            type: 'start',
-                            drinkType: drinkType
-                        })
+                        axios.get('http://' + this.host + ':' + this.port + '/finish')
                         .then((res) => {
                             resolve(res)
                         })
@@ -79,6 +77,7 @@ module.exports = class UnoServer {
                     }
                     break
                 case "gotolocation":
+                    this.onMission = true
                     console.log("[Uno Server] Going to", result.msg_data.data.waypoint_coord == point_home ? "Home" : result.msg_data.data.waypoint_coord == point_drink_area_1 ? "Drink Area 1" : "Drink Area 2")
                     break
                 default:
