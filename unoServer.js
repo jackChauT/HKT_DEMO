@@ -3,17 +3,21 @@ const fs = require('fs');
 const axios = require('axios');
 
 let count = 0
-let timeout = 10 //second
+let timeout = 5 //second
 
 let locationRawData = fs.readFileSync('location.json');  
 let locationJson = JSON.parse(locationRawData)
-const point_home = "0ad70b40 b6f3a940 5ea232bf 915f373f" // Home
-const point_drink_area_1 = "ae471140 8b6c0f40 024633bf a9bf363f" // Drink Area
-const point_drink_area_2 = "ae471140 8b6c0f40 024633bf a9bf474g" // Drink Area
+const point_home = "85eb913f ec51b8be f704353f f70435bf" // Home
+const point_drink_area_1 = "666666bf 33335340 ec79883c e4f67f3f" // Drink Area 1
+const point_drink_area_2 = "3d0a57bf 48e15a40 ec79883c e4f67f3f" // Drink Area 2
 
 let location_home = JSON.parse(JSON.stringify(locationJson));
 location_home.msg_data.data.waypoint_coord = point_home
 location_home.msg_data.data.waypoint_name = "Home"
+
+let location_chargingPoint = JSON.parse(JSON.stringify(locationJson));
+location_chargingPoint.msg_data.api_path = "missions/gorecharge"
+location_chargingPoint.msg_data.data.waypoint_name = "Charging Point"
 
 let location_drink_area_1 = JSON.parse(JSON.stringify(locationJson));
 location_drink_area_1.msg_data.data.waypoint_coord = point_drink_area_1
@@ -47,10 +51,10 @@ module.exports = class UnoServer {
             console.log("[Uno Server] =============  ",result.msg_data.api_path,"  =============")
             switch(result.msg_data.api_path) {
                 case "fullstatus":
-                    console.log("[Uno Server] from_waypoint_info: ", result.msg_data.data.from_waypoint_info.waypoint_name," ",result.msg_data.data.from_waypoint_info.waypoint_coord ,
-                    "\ntarget_waypoint_info: ", result.msg_data.data.target_waypoint_info.waypoint_name , result.msg_data.data.target_waypoint_info.waypoint_coord,
-                    "\nreached_waypoint_info: ",result.msg_data.data.reached_waypoint_info.waypoint_name," ", result.msg_data.data.reached_waypoint_info.waypoint_coord,
-                    "\nlast_target_waypoint_info: ", result.msg_data.data.last_target_waypoint_info.waypoint_name," ", result.msg_data.data.last_target_waypoint_info.waypoint_coord)
+                    // console.log("[Uno Server] from_waypoint_info: ", result.msg_data.data.from_waypoint_info.waypoint_name,
+                    console.log("[Uno Server] target_waypoint_info: ", result.msg_data.data.target_waypoint_info.waypoint_name,
+                    // "\n[Uno Server] reached_waypoint_info: ",result.msg_data.data.reached_waypoint_info.waypoint_name,
+                    "\n[Uno Server] last_target_waypoint_info: ", result.msg_data.data.last_target_waypoint_info.waypoint_name)
                     break;
                 case "missions/started":
                     console.log("[Uno Server] Mission Start")
@@ -60,25 +64,27 @@ module.exports = class UnoServer {
                     console.log("[Uno Server] Mission Status: ", result.msg_data.data.status_detail, result.msg_data.data.status_data)            
                     break;
                 case "missions/completed":
-                    console.log("[Uno Server] Arrived", result.msg_data.data.waypoint_coord == point_home ? "Home" : result.msg_data.data.waypoint_coord == point_drink_area_1 ? "Drink Area 1" : "Drink Area 2")
-                    if (result.msg_data.data.status_data == point_drink_area) {
+                    var completed_point = result.msg_data.data.status_data;
+                    console.log("[Uno Server] Arrived", completed_point == point_home ? "Home" : completed_point == point_drink_area_1 ? "Drink Area 1" : "Drink Area 2")
+                    if (completed_point == point_drink_area_1 || completed_point == point_drink_area_2) {
                         setTimeout(function() {
-                            this.ws.send(JSON.stringify(location_home));
+                            // go to charging point
+                            that.goToChargingPoint()
+                            // that.goToChargingPoint()
                         }, timeout * 1000)
                     } else {
-                        console.log("[Uno Server] Finish Count", ++count)
-                        axios.get('http://' + this.host + ':' + this.port + '/finish')
-                        .then((res) => {
-                            resolve(res)
-                        })
-                        .catch((error) => {
-                            reject(error)
-                        })
+                        that.notifyFinish()
                     }
                     break
                 case "gotolocation":
                     this.onMission = true
                     console.log("[Uno Server] Going to", result.msg_data.data.waypoint_coord == point_home ? "Home" : result.msg_data.data.waypoint_coord == point_drink_area_1 ? "Drink Area 1" : "Drink Area 2")
+                    break
+                case "status/charging":
+                    console.log("[Uno Server] Finish Count", count)
+                    that.notifyFinish()
+                    break
+                case "missions/cancel":
                     break
                 default:
                     console.log(`[Uno Server] ${result.msg_data.api_path}`)
@@ -88,6 +94,29 @@ module.exports = class UnoServer {
     }
 
     gotoLocation(location) {
+        count += 1;
         this.ws.send(JSON.stringify(location == 0 ? location_drink_area_1 : location_drink_area_2));
+    }
+
+    goToHome() {
+        this.ws.send(JSON.stringify(location_home));
+    }
+
+    goToChargingPoint() {
+        // missions/gorecharge
+        this.ws.send(JSON.stringify(location_chargingPoint));
+    }
+
+    notifyFinish() {
+        console.log("[Uno Server] Finish Count", count)
+        axios.post('http://' + this.host + ':' + this.port + '/setUnoStatus', {
+            status: 1 
+        })
+        .then((res) => {
+            console.log("[Uno Server] setUnoStatus success")
+        })
+        .catch((error) => {
+            console.log("[Uno Server] setUnoStatus Error")
+        })
     }
 }

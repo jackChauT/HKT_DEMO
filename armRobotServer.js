@@ -4,7 +4,7 @@ module.exports = class ArmRobotServer {
     constructor(host,port) {
         this.host = host;
         this.port = port;
-        console.log(`\n[Arm Robot Server] connected`)        
+        console.log(`\n[Arm Robot Server] init`)        
     }
     init() {
         console.log("Init arm robot class")

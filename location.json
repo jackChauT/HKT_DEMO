@@ -11,13 +11,13 @@
         "page_limit": 1, 
         "sent_date": "", 
         "data": {
-            "uno_id": "UNO0001", 
-            "waypoint_name": "end_location", 
+            "uno_id": "UNO0001",
+            "waypoint_name": "end_location",
             "waypoint_coord": "b6f37dbd 8b6ca740 f1483c3c adfb7f3f"
         }
-    }, 
+    },
     "msg_type": "run_task", 
     "client_name": "UNO FMS CONTROLLER 001", 
-    "msg_id": "0", 
+    "msg_id": "0",
     "client_id": "UNO0001"
 }

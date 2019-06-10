@@ -9,11 +9,12 @@ const UNOServer = require('./unoServer');
 const host = "192.168.1.128"
 const port = 3333
 const armRobotHost = 5566
-
-const armRobotServer = new ARServer(host, armRobotHost);
+const isTesting = true;
+// const armRobotServer = new ARServer(host, armRobotHost);
 const unoServer = new UNOServer(host, port);
 let robotArmTimer;
 let onMission = false;
+let armRobotOnMission = false;
 
 let drinkType = 0;
 let location = 0;
@@ -25,7 +26,8 @@ const server = http.createServer(function(request, response) {
         case "POST":
             switch(request.url) {
                 case "/option":
-                    if (isOnMission(response)) {return};
+                    if (isOnMission(response)) return;
+                    if (isArmRobotOnMission(response)) return;
 
                     var isEmptyInput = true
                     request.on('data', function(data) {
@@ -33,9 +35,9 @@ const server = http.createServer(function(request, response) {
                         var json = JSON.parse(data)
                         console.log("Data: ", json)
                         if (!isValidResult(response, json)) return
-                        this.drinkType = json.drink_type
-                        this.location = json.location
-                        drinkAndLocationHandler(this.drinkType, true)
+                        drinkType = json.drink_type
+                        location = json.location
+                        drinkAndLocationHandler(drinkType, true)
                     })
 
                     request.on('end', function() {
@@ -46,9 +48,39 @@ const server = http.createServer(function(request, response) {
                         successResponse(response, 'success')
                     })
                     break;
+                case "/pick":
+                    if (isArmRobotOnMission(response)) return;
+                    request.on('data', function(data) {
+                        var json = JSON.parse(data)
+                        console.log("Data: ", json)
+                        if (typeof json.drink_type == "undefined") {
+                            errorResponse(response, "drink_type is empty")
+                            return false;
+                        }
+                        drinkAndLocationHandler(json.drink_type, false)
+                        successResponse(response, "success")
+                    })
+                    break
+                case "/setUnoStatus":
+                    request.on('data', function(data) {
+                        var json = JSON.parse(data)
+                        console.log("Data: ", json)
+                        if (typeof json.status == "undefined") {
+                            errorResponse(response, "status is empty")
+                            return false;
+                        }
+                        if(json.status == 0) {
+                            onMission = true;
+                        } else {
+                            onMission = false;
+                        }
+                        // drinkAndLocationHandler(json.drink_type, false)
+                        successResponse(response, "success")
+                    })
+                    break;
                 default:
+                    successResponse(response, 'wrong api url, maybe GET')
             }
-
         break;
         case "GET":
             switch(request.url) {
@@ -56,17 +88,15 @@ const server = http.createServer(function(request, response) {
                     // ready or busy
                     successResponse(response, onMission == true ? 'busy' : 'ready')
                     break;
+                case "/armRobotStatus":
+                    successResponse(response, armRobotOnMission == true ? 'busy' : 'ready')                    
+                    break;
                 case "/finish":
                     onMission = false;
+                    successResponse(response, "success")
                     break;
-                case "/pick":
-                        if (isOnMission(response)) {return};
-                        let option = Math.round(Math.random());
-                        console.log(option)
-                        drinkAndLocationHandler(option, false)
-                        successResponse(response, "success")
-                        break
                 default:
+                    successResponse(response, 'wrong api url, maybe POST')
             }
         break;
         default:
@@ -82,6 +112,14 @@ function isOnMission(response) {
     }
 }
 
+function isArmRobotOnMission(response) {
+    if (armRobotOnMission) {
+        console.log("Option")
+        successResponse(response, 'Mission is on going')
+        return true
+    }
+}
+
 function successResponse(response, content) {
     response.writeHead(200, {'Content-Type': 'text/html'})
     console.log("[Main] Response: ",content)
@@ -89,14 +127,22 @@ function successResponse(response, content) {
 }
 
 function drinkAndLocationHandler(drink, isGoToLocation) {
-    onMission = true;
+    armRobotOnMission = true;
+    if (isTesting) {
+        setTimeout(function() {
+            console.log("Testing")
+            armRobotOnMission = false;
+            // unoServer.gotoLocation(location)
+        }, 2 * 1000);
+        return
+    }
     armRobotServer.startPickDrink(drink).then((res, err) => {
         if (typeof err == "undefined") {
             if (res.status == "200") {
                 if (isGoToLocation) {
                     robotArmTimer = setInterval(getPickDrinkResult, 1000);
                 } else {
-                    onMission = false;
+                    armRobotOnMission = false;
                 }
             }
         } else {
@@ -106,11 +152,14 @@ function drinkAndLocationHandler(drink, isGoToLocation) {
 }
 
 function getPickDrinkResult() {
+    onMission = true;
     armRobotServer.getStatus().then((res, err) => {
         if (typeof err == "undefined") {
             if (res.status == "200") {
                 if(res.data == "not_on_mission") {
+                    armRobotOnMission = false;
                     clearInterval(robotArmTimer)
+                    console.log(`location: ${location}`)
                     unoServer.gotoLocation(location)
                 }
             }

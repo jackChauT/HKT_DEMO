@@ -1,0 +1,324 @@
+2019-06-04 16:23:20,336 [2640] INFO: Jun 04 2019 16:23:20 test beginning...
+2019-06-04 16:23:20,368 [2640] INFO: robot.rshd=0
+2019-06-04 16:23:20,667 [2640] INFO:  * Running on http://10.129.2.88:5566/ (Press CTRL+C to quit)
+2019-06-04 17:33:42,992 [8080] INFO: Jun 04 2019 17:33:42 test beginning...
+2019-06-04 17:33:42,993 [8080] INFO: robot.rshd=0
+2019-06-04 17:33:43,005 [8080] INFO:  * Running on http://192.168.0.102:5566/ (Press CTRL+C to quit)
+2019-06-04 17:36:14,594 [11348] INFO: Jun 04 2019 17:36:14 connecting robot...
+2019-06-04 17:36:14,594 [11348] INFO: Jun 04 2019 17:36:14 connecting robot...
+2019-06-04 17:36:14,595 [11348] INFO: robot.rshd=1
+2019-06-04 17:36:14,595 [11348] INFO: robot.rshd=1
+2019-06-04 17:36:14,595 [11348] INFO: ip=192.168.0.103, port=8899
+2019-06-04 17:36:14,595 [11348] INFO: ip=192.168.0.103, port=8899
+2019-06-04 17:36:37,157 [11348] INFO: 192.168.0.102 - - [04/Jun/2019 17:36:37] "POST /action HTTP/1.1" 200 -
+2019-06-04 17:36:37,157 [11348] INFO: 192.168.0.102 - - [04/Jun/2019 17:36:37] "POST /action HTTP/1.1" 200 -
+2019-06-04 17:36:38,216 [11400] INFO: 192.168.0.102 - - [04/Jun/2019 17:36:38] "POST /action HTTP/1.1" 200 -
+2019-06-04 17:36:38,216 [11400] INFO: 192.168.0.102 - - [04/Jun/2019 17:36:38] "POST /action HTTP/1.1" 200 -
+2019-06-04 17:59:41,417 [11544] INFO: Jun 04 2019 17:59:41 test beginning...
+2019-06-04 17:59:41,418 [11544] INFO: robot.rshd=0
+2019-06-04 17:59:41,430 [11544] INFO:  * Running on http://192.168.1.128:5566/ (Press CTRL+C to quit)
+2019-06-04 17:59:51,976 [8972] INFO: 192.168.1.128 - - [04/Jun/2019 17:59:51] "GET / HTTP/1.1" 200 -
+2019-06-04 17:59:52,628 [5404] INFO: 192.168.1.128 - - [04/Jun/2019 17:59:52] "GET /static/ui.svg HTTP/1.1" 200 -
+2019-06-04 17:59:52,888 [12308] INFO: 192.168.1.128 - - [04/Jun/2019 17:59:52] "GET /favicon.ico HTTP/1.1" 301 -
+2019-06-04 17:59:52,921 [12312] ERROR: Exception on /favicon.ico/ [GET]
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Python27\lib\site-packages\flask_cors\extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "app.py", line 87, in render_static
+    return render_template('%s.html' % page_name)
+  File "C:\Python27\lib\site-packages\flask\templating.py", line 134, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "C:\Python27\lib\site-packages\jinja2\environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "C:\Python27\lib\site-packages\jinja2\environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "C:\Python27\lib\site-packages\jinja2\environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "C:\Python27\lib\site-packages\jinja2\loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "C:\Python27\lib\site-packages\flask\templating.py", line 58, in get_source
+    return self._get_source_fast(environment, template)
+  File "C:\Python27\lib\site-packages\flask\templating.py", line 86, in _get_source_fast
+    raise TemplateNotFound(template)
+TemplateNotFound: favicon.ico.html
+2019-06-04 17:59:52,994 [12312] INFO: 192.168.1.128 - - [04/Jun/2019 17:59:52] "GET /favicon.ico/ HTTP/1.1" 500 -
+2019-06-04 18:00:49,000 [11544] INFO: client_count=0
+2019-06-04 18:00:50,948 [12744] INFO: Jun 04 2019 18:00:50 test beginning...
+2019-06-04 18:00:50,950 [12744] INFO: robot.rshd=0
+2019-06-04 18:00:50,961 [12744] INFO:  * Running on http://192.168.1.128:5566/ (Press CTRL+C to quit)
+2019-06-04 18:03:01,267 [10800] INFO: Jun 04 2019 18:03:01 connecting robot...
+2019-06-04 18:03:01,267 [10800] INFO: Jun 04 2019 18:03:01 connecting robot...
+2019-06-04 18:03:01,269 [10800] INFO: robot.rshd=1
+2019-06-04 18:03:01,269 [10800] INFO: robot.rshd=1
+2019-06-04 18:03:01,269 [10800] INFO: ip=192.168.1.106, port=8899
+2019-06-04 18:03:01,269 [10800] INFO: ip=192.168.1.106, port=8899
+2019-06-04 18:03:23,928 [10800] INFO: 192.168.1.128 - - [04/Jun/2019 18:03:23] "POST /action HTTP/1.1" 200 -
+2019-06-04 18:03:23,928 [10800] INFO: 192.168.1.128 - - [04/Jun/2019 18:03:23] "POST /action HTTP/1.1" 200 -
+2019-06-04 18:03:24,948 [12044] INFO: 192.168.1.128 - - [04/Jun/2019 18:03:24] "POST /action HTTP/1.1" 200 -
+2019-06-04 18:03:24,948 [12044] INFO: 192.168.1.128 - - [04/Jun/2019 18:03:24] "POST /action HTTP/1.1" 200 -
+2019-06-04 18:05:44,115 [12932] INFO: 192.168.1.128 - - [04/Jun/2019 18:05:44] "POST /action HTTP/1.1" 200 -
+2019-06-04 18:05:44,115 [12932] INFO: 192.168.1.128 - - [04/Jun/2019 18:05:44] "POST /action HTTP/1.1" 200 -
+2019-06-04 18:05:45,132 [7828] INFO: 192.168.1.128 - - [04/Jun/2019 18:05:45] "POST /action HTTP/1.1" 200 -
+2019-06-04 18:05:45,132 [7828] INFO: 192.168.1.128 - - [04/Jun/2019 18:05:45] "POST /action HTTP/1.1" 200 -
+2019-06-04 18:06:49,885 [11624] INFO: 192.168.1.128 - - [04/Jun/2019 18:06:49] "POST /action HTTP/1.1" 200 -
+2019-06-04 18:06:49,885 [11624] INFO: 192.168.1.128 - - [04/Jun/2019 18:06:49] "POST /action HTTP/1.1" 200 -
+2019-06-04 18:08:41,061 [12616] INFO: 192.168.1.128 - - [04/Jun/2019 18:08:41] "POST /action HTTP/1.1" 200 -
+2019-06-04 18:08:41,061 [12616] INFO: 192.168.1.128 - - [04/Jun/2019 18:08:41] "POST /action HTTP/1.1" 200 -
+2019-06-04 18:09:59,730 [12796] INFO: 192.168.1.128 - - [04/Jun/2019 18:09:59] "POST /action HTTP/1.1" 200 -
+2019-06-04 18:09:59,730 [12796] INFO: 192.168.1.128 - - [04/Jun/2019 18:09:59] "POST /action HTTP/1.1" 200 -
+2019-06-04 18:11:18,193 [12472] INFO: 192.168.1.128 - - [04/Jun/2019 18:11:18] "POST /action HTTP/1.1" 200 -
+2019-06-04 18:11:18,193 [12472] INFO: 192.168.1.128 - - [04/Jun/2019 18:11:18] "POST /action HTTP/1.1" 200 -
+2019-06-04 18:11:56,032 [6868] INFO: 192.168.1.128 - - [04/Jun/2019 18:11:56] "POST /action HTTP/1.1" 200 -
+2019-06-04 18:11:56,032 [6868] INFO: 192.168.1.128 - - [04/Jun/2019 18:11:56] "POST /action HTTP/1.1" 200 -
+2019-06-04 18:12:50,321 [12256] INFO: 192.168.1.128 - - [04/Jun/2019 18:12:50] "POST /action HTTP/1.1" 200 -
+2019-06-04 18:12:50,321 [12256] INFO: 192.168.1.128 - - [04/Jun/2019 18:12:50] "POST /action HTTP/1.1" 200 -
+2019-06-04 18:13:17,154 [5360] INFO: 192.168.1.128 - - [04/Jun/2019 18:13:17] "POST /action HTTP/1.1" 200 -
+2019-06-04 18:13:17,154 [5360] INFO: 192.168.1.128 - - [04/Jun/2019 18:13:17] "POST /action HTTP/1.1" 200 -
+2019-06-04 18:13:40,276 [12628] INFO: 192.168.1.128 - - [04/Jun/2019 18:13:40] "POST /action HTTP/1.1" 200 -
+2019-06-04 18:13:40,276 [12628] INFO: 192.168.1.128 - - [04/Jun/2019 18:13:40] "POST /action HTTP/1.1" 200 -
+2019-06-05 10:18:17,665 [4624] INFO: Jun 05 2019 10:18:17 test beginning...
+2019-06-05 10:18:17,681 [4624] INFO: robot.rshd=0
+2019-06-05 10:18:17,681 [4624] INFO:  * Running on http://192.168.1.128:5566/ (Press CTRL+C to quit)
+2019-06-05 10:22:27,785 [7464] INFO: Jun 05 2019 10:22:27 connecting robot...
+2019-06-05 10:22:27,785 [7464] INFO: Jun 05 2019 10:22:27 connecting robot...
+2019-06-05 10:22:27,785 [7464] INFO: robot.rshd=1
+2019-06-05 10:22:27,785 [7464] INFO: robot.rshd=1
+2019-06-05 10:22:27,785 [7464] INFO: ip=192.168.1.106, port=8899
+2019-06-05 10:22:27,785 [7464] INFO: ip=192.168.1.106, port=8899
+2019-06-05 10:22:49,851 [7464] INFO: 192.168.1.128 - - [05/Jun/2019 10:22:49] "POST /action HTTP/1.1" 200 -
+2019-06-05 10:22:49,851 [7464] INFO: 192.168.1.128 - - [05/Jun/2019 10:22:49] "POST /action HTTP/1.1" 200 -
+2019-06-05 10:25:27,339 [1304] INFO: 192.168.1.128 - - [05/Jun/2019 10:25:27] "POST /action HTTP/1.1" 200 -
+2019-06-05 10:25:27,339 [1304] INFO: 192.168.1.128 - - [05/Jun/2019 10:25:27] "POST /action HTTP/1.1" 200 -
+2019-06-05 10:25:28,355 [3164] INFO: 192.168.1.128 - - [05/Jun/2019 10:25:28] "POST /action HTTP/1.1" 200 -
+2019-06-05 10:25:28,355 [3164] INFO: 192.168.1.128 - - [05/Jun/2019 10:25:28] "POST /action HTTP/1.1" 200 -
+2019-06-05 11:41:07,015 [4624] INFO: client_count=0
+2019-06-05 11:41:07,015 [4624] INFO: client_count=0
+2019-06-05 13:39:41,769 [6104] INFO: Jun 05 2019 13:39:41 test beginning...
+2019-06-05 13:39:41,769 [6104] INFO: robot.rshd=0
+2019-06-05 13:39:41,785 [6104] INFO:  * Running on http://192.168.1.128:5566/ (Press CTRL+C to quit)
+2019-06-05 13:45:10,756 [7224] INFO: Jun 05 2019 13:45:10 connecting robot...
+2019-06-05 13:45:10,756 [7224] INFO: Jun 05 2019 13:45:10 connecting robot...
+2019-06-05 13:45:10,756 [7224] INFO: robot.rshd=1
+2019-06-05 13:45:10,756 [7224] INFO: robot.rshd=1
+2019-06-05 13:45:10,756 [7224] INFO: ip=192.168.1.106, port=8899
+2019-06-05 13:45:10,756 [7224] INFO: ip=192.168.1.106, port=8899
+2019-06-05 13:45:34,078 [7224] INFO: 192.168.1.128 - - [05/Jun/2019 13:45:34] "POST /action HTTP/1.1" 200 -
+2019-06-05 13:45:34,078 [7224] INFO: 192.168.1.128 - - [05/Jun/2019 13:45:34] "POST /action HTTP/1.1" 200 -
+2019-06-05 13:45:35,108 [4892] INFO: 192.168.1.128 - - [05/Jun/2019 13:45:35] "POST /action HTTP/1.1" 200 -
+2019-06-05 13:45:35,108 [4892] INFO: 192.168.1.128 - - [05/Jun/2019 13:45:35] "POST /action HTTP/1.1" 200 -
+2019-06-05 13:47:15,196 [5452] INFO: 192.168.1.128 - - [05/Jun/2019 13:47:15] "POST /action HTTP/1.1" 200 -
+2019-06-05 13:47:15,196 [5452] INFO: 192.168.1.128 - - [05/Jun/2019 13:47:15] "POST /action HTTP/1.1" 200 -
+2019-06-05 13:47:16,210 [1468] INFO: 192.168.1.128 - - [05/Jun/2019 13:47:16] "POST /action HTTP/1.1" 200 -
+2019-06-05 13:47:16,210 [1468] INFO: 192.168.1.128 - - [05/Jun/2019 13:47:16] "POST /action HTTP/1.1" 200 -
+2019-06-05 13:47:56,880 [7528] INFO: 192.168.1.128 - - [05/Jun/2019 13:47:56] "POST /action HTTP/1.1" 200 -
+2019-06-05 13:47:56,880 [7528] INFO: 192.168.1.128 - - [05/Jun/2019 13:47:56] "POST /action HTTP/1.1" 200 -
+2019-06-05 13:47:57,908 [1520] INFO: 192.168.1.128 - - [05/Jun/2019 13:47:57] "POST /action HTTP/1.1" 200 -
+2019-06-05 13:47:57,908 [1520] INFO: 192.168.1.128 - - [05/Jun/2019 13:47:57] "POST /action HTTP/1.1" 200 -
+2019-06-05 14:36:39,135 [7052] INFO: 192.168.1.128 - - [05/Jun/2019 14:36:39] "POST /action HTTP/1.1" 200 -
+2019-06-05 14:36:39,135 [7052] INFO: 192.168.1.128 - - [05/Jun/2019 14:36:39] "POST /action HTTP/1.1" 200 -
+2019-06-05 14:36:40,165 [8044] INFO: 192.168.1.128 - - [05/Jun/2019 14:36:40] "POST /action HTTP/1.1" 200 -
+2019-06-05 14:36:40,165 [8044] INFO: 192.168.1.128 - - [05/Jun/2019 14:36:40] "POST /action HTTP/1.1" 200 -
+2019-06-05 14:37:53,720 [6332] INFO: 192.168.1.128 - - [05/Jun/2019 14:37:53] "POST /action HTTP/1.1" 200 -
+2019-06-05 14:37:53,720 [6332] INFO: 192.168.1.128 - - [05/Jun/2019 14:37:53] "POST /action HTTP/1.1" 200 -
+2019-06-05 14:37:54,749 [6740] INFO: 192.168.1.128 - - [05/Jun/2019 14:37:54] "POST /action HTTP/1.1" 200 -
+2019-06-05 14:37:54,749 [6740] INFO: 192.168.1.128 - - [05/Jun/2019 14:37:54] "POST /action HTTP/1.1" 200 -
+2019-06-05 14:38:48,085 [4292] INFO: 192.168.1.128 - - [05/Jun/2019 14:38:48] "POST /action HTTP/1.1" 200 -
+2019-06-05 14:38:48,085 [4292] INFO: 192.168.1.128 - - [05/Jun/2019 14:38:48] "POST /action HTTP/1.1" 200 -
+2019-06-05 14:45:26,292 [2252] INFO: 192.168.1.128 - - [05/Jun/2019 14:45:26] "POST /action HTTP/1.1" 200 -
+2019-06-05 14:45:26,292 [2252] INFO: 192.168.1.128 - - [05/Jun/2019 14:45:26] "POST /action HTTP/1.1" 200 -
+2019-06-05 14:59:33,736 [4844] INFO: 192.168.1.128 - - [05/Jun/2019 14:59:33] "POST /action HTTP/1.1" 200 -
+2019-06-05 14:59:33,736 [4844] INFO: 192.168.1.128 - - [05/Jun/2019 14:59:33] "POST /action HTTP/1.1" 200 -
+2019-06-05 15:00:02,503 [1152] INFO: 192.168.1.128 - - [05/Jun/2019 15:00:02] "POST /action HTTP/1.1" 200 -
+2019-06-05 15:00:02,503 [1152] INFO: 192.168.1.128 - - [05/Jun/2019 15:00:02] "POST /action HTTP/1.1" 200 -
+2019-06-05 15:00:29,617 [7796] INFO: 192.168.1.128 - - [05/Jun/2019 15:00:29] "POST /action HTTP/1.1" 200 -
+2019-06-05 15:00:29,617 [7796] INFO: 192.168.1.128 - - [05/Jun/2019 15:00:29] "POST /action HTTP/1.1" 200 -
+2019-06-05 15:00:58,134 [5452] INFO: 192.168.1.128 - - [05/Jun/2019 15:00:58] "POST /action HTTP/1.1" 200 -
+2019-06-05 15:00:58,134 [5452] INFO: 192.168.1.128 - - [05/Jun/2019 15:00:58] "POST /action HTTP/1.1" 200 -
+2019-06-05 15:00:59,163 [7732] INFO: 192.168.1.128 - - [05/Jun/2019 15:00:59] "POST /action HTTP/1.1" 200 -
+2019-06-05 15:00:59,163 [7732] INFO: 192.168.1.128 - - [05/Jun/2019 15:00:59] "POST /action HTTP/1.1" 200 -
+2019-06-05 16:09:10,209 [7092] INFO: 192.168.1.128 - - [05/Jun/2019 16:09:10] "POST /action HTTP/1.1" 200 -
+2019-06-05 16:09:10,209 [7092] INFO: 192.168.1.128 - - [05/Jun/2019 16:09:10] "POST /action HTTP/1.1" 200 -
+2019-06-05 16:09:11,237 [1160] INFO: 192.168.1.128 - - [05/Jun/2019 16:09:11] "POST /action HTTP/1.1" 200 -
+2019-06-05 16:09:11,237 [1160] INFO: 192.168.1.128 - - [05/Jun/2019 16:09:11] "POST /action HTTP/1.1" 200 -
+2019-06-05 18:14:57,006 [6104] INFO: client_count=0
+2019-06-05 18:14:57,006 [6104] INFO: client_count=0
+2019-06-05 18:14:58,861 [6996] INFO: Jun 05 2019 18:14:58 test beginning...
+2019-06-05 18:14:58,861 [6996] INFO: robot.rshd=0
+2019-06-05 18:14:58,878 [6996] INFO:  * Running on http://192.168.1.128:5566/ (Press CTRL+C to quit)
+2019-06-05 18:30:58,734 [3996] INFO: Jun 05 2019 18:30:58 connecting robot...
+2019-06-05 18:30:58,734 [3996] INFO: Jun 05 2019 18:30:58 connecting robot...
+2019-06-05 18:30:58,734 [3996] INFO: robot.rshd=1
+2019-06-05 18:30:58,734 [3996] INFO: robot.rshd=1
+2019-06-05 18:30:58,734 [3996] INFO: ip=192.168.1.106, port=8899
+2019-06-05 18:30:58,734 [3996] INFO: ip=192.168.1.106, port=8899
+2019-06-05 18:31:21,717 [3996] INFO: 192.168.1.128 - - [05/Jun/2019 18:31:21] "POST /action HTTP/1.1" 200 -
+2019-06-05 18:31:21,717 [3996] INFO: 192.168.1.128 - - [05/Jun/2019 18:31:21] "POST /action HTTP/1.1" 200 -
+2019-06-05 18:31:22,730 [9116] INFO: 192.168.1.128 - - [05/Jun/2019 18:31:22] "POST /action HTTP/1.1" 200 -
+2019-06-05 18:31:22,730 [9116] INFO: 192.168.1.128 - - [05/Jun/2019 18:31:22] "POST /action HTTP/1.1" 200 -
+2019-06-05 18:33:10,500 [1812] INFO: 192.168.1.128 - - [05/Jun/2019 18:33:10] "POST /action HTTP/1.1" 200 -
+2019-06-05 18:33:10,500 [1812] INFO: 192.168.1.128 - - [05/Jun/2019 18:33:10] "POST /action HTTP/1.1" 200 -
+2019-06-05 18:33:11,530 [7624] INFO: 192.168.1.128 - - [05/Jun/2019 18:33:11] "POST /action HTTP/1.1" 200 -
+2019-06-05 18:33:11,530 [7624] INFO: 192.168.1.128 - - [05/Jun/2019 18:33:11] "POST /action HTTP/1.1" 200 -
+2019-06-05 18:35:34,559 [8716] INFO: 192.168.1.128 - - [05/Jun/2019 18:35:34] "POST /action HTTP/1.1" 200 -
+2019-06-05 18:35:34,559 [8716] INFO: 192.168.1.128 - - [05/Jun/2019 18:35:34] "POST /action HTTP/1.1" 200 -
+2019-06-05 18:35:35,588 [8448] INFO: 192.168.1.128 - - [05/Jun/2019 18:35:35] "POST /action HTTP/1.1" 200 -
+2019-06-05 18:35:35,588 [8448] INFO: 192.168.1.128 - - [05/Jun/2019 18:35:35] "POST /action HTTP/1.1" 200 -
+2019-06-05 18:37:37,029 [8724] INFO: 192.168.1.128 - - [05/Jun/2019 18:37:37] "POST /action HTTP/1.1" 200 -
+2019-06-05 18:37:37,029 [8724] INFO: 192.168.1.128 - - [05/Jun/2019 18:37:37] "POST /action HTTP/1.1" 200 -
+2019-06-05 18:37:38,042 [9064] INFO: 192.168.1.128 - - [05/Jun/2019 18:37:38] "POST /action HTTP/1.1" 200 -
+2019-06-05 18:37:38,042 [9064] INFO: 192.168.1.128 - - [05/Jun/2019 18:37:38] "POST /action HTTP/1.1" 200 -
+2019-06-05 18:39:39,614 [7908] INFO: 192.168.1.128 - - [05/Jun/2019 18:39:39] "POST /action HTTP/1.1" 200 -
+2019-06-05 18:39:39,614 [7908] INFO: 192.168.1.128 - - [05/Jun/2019 18:39:39] "POST /action HTTP/1.1" 200 -
+2019-06-05 18:39:40,642 [7072] INFO: 192.168.1.128 - - [05/Jun/2019 18:39:40] "POST /action HTTP/1.1" 200 -
+2019-06-05 18:39:40,642 [7072] INFO: 192.168.1.128 - - [05/Jun/2019 18:39:40] "POST /action HTTP/1.1" 200 -
+2019-06-05 18:40:52,002 [6996] INFO: client_count=0
+2019-06-05 18:40:52,002 [6996] INFO: client_count=0
+2019-06-06 10:40:27,667 [1188] INFO: Jun 06 2019 10:40:27 test beginning...
+2019-06-06 10:40:27,681 [1188] INFO: robot.rshd=0
+2019-06-06 10:40:27,838 [1188] INFO:  * Running on http://192.168.1.128:5566/ (Press CTRL+C to quit)
+2019-06-06 10:43:46,348 [8400] INFO: Jun 06 2019 10:43:46 connecting robot...
+2019-06-06 10:43:46,348 [8400] INFO: Jun 06 2019 10:43:46 connecting robot...
+2019-06-06 10:43:46,348 [8400] INFO: robot.rshd=1
+2019-06-06 10:43:46,348 [8400] INFO: robot.rshd=1
+2019-06-06 10:43:46,348 [8400] INFO: ip=192.168.1.106, port=8899
+2019-06-06 10:43:46,348 [8400] INFO: ip=192.168.1.106, port=8899
+2019-06-06 10:44:08,469 [8400] INFO: 192.168.1.128 - - [06/Jun/2019 10:44:08] "POST /action HTTP/1.1" 200 -
+2019-06-06 10:44:08,469 [8400] INFO: 192.168.1.128 - - [06/Jun/2019 10:44:08] "POST /action HTTP/1.1" 200 -
+2019-06-06 10:48:30,701 [7556] INFO: 192.168.1.128 - - [06/Jun/2019 10:48:30] "POST /action HTTP/1.1" 200 -
+2019-06-06 10:48:30,701 [7556] INFO: 192.168.1.128 - - [06/Jun/2019 10:48:30] "POST /action HTTP/1.1" 200 -
+2019-06-06 10:48:31,716 [2896] INFO: 192.168.1.128 - - [06/Jun/2019 10:48:31] "POST /action HTTP/1.1" 200 -
+2019-06-06 10:48:31,716 [2896] INFO: 192.168.1.128 - - [06/Jun/2019 10:48:31] "POST /action HTTP/1.1" 200 -
+2019-06-06 10:50:11,112 [7300] INFO: 192.168.1.128 - - [06/Jun/2019 10:50:11] "POST /action HTTP/1.1" 200 -
+2019-06-06 10:50:11,112 [7300] INFO: 192.168.1.128 - - [06/Jun/2019 10:50:11] "POST /action HTTP/1.1" 200 -
+2019-06-06 10:52:50,066 [5980] INFO: 192.168.1.128 - - [06/Jun/2019 10:52:50] "POST /action HTTP/1.1" 200 -
+2019-06-06 10:52:50,066 [5980] INFO: 192.168.1.128 - - [06/Jun/2019 10:52:50] "POST /action HTTP/1.1" 200 -
+2019-06-06 10:53:15,848 [1552] INFO: 192.168.1.128 - - [06/Jun/2019 10:53:15] "POST /action HTTP/1.1" 200 -
+2019-06-06 10:53:15,848 [1552] INFO: 192.168.1.128 - - [06/Jun/2019 10:53:15] "POST /action HTTP/1.1" 200 -
+2019-06-06 10:53:16,855 [9200] INFO: 192.168.1.128 - - [06/Jun/2019 10:53:16] "POST /action HTTP/1.1" 200 -
+2019-06-06 10:53:16,855 [9200] INFO: 192.168.1.128 - - [06/Jun/2019 10:53:16] "POST /action HTTP/1.1" 200 -
+2019-06-06 10:58:33,168 [8264] INFO: 192.168.1.128 - - [06/Jun/2019 10:58:33] "POST /action HTTP/1.1" 200 -
+2019-06-06 10:58:33,168 [8264] INFO: 192.168.1.128 - - [06/Jun/2019 10:58:33] "POST /action HTTP/1.1" 200 -
+2019-06-06 10:58:34,183 [8284] INFO: 192.168.1.128 - - [06/Jun/2019 10:58:34] "POST /action HTTP/1.1" 200 -
+2019-06-06 10:58:34,183 [8284] INFO: 192.168.1.128 - - [06/Jun/2019 10:58:34] "POST /action HTTP/1.1" 200 -
+2019-06-06 11:00:42,736 [6812] INFO: 192.168.1.128 - - [06/Jun/2019 11:00:42] "POST /action HTTP/1.1" 200 -
+2019-06-06 11:00:42,736 [6812] INFO: 192.168.1.128 - - [06/Jun/2019 11:00:42] "POST /action HTTP/1.1" 200 -
+2019-06-06 11:00:43,743 [8304] INFO: 192.168.1.128 - - [06/Jun/2019 11:00:43] "POST /action HTTP/1.1" 200 -
+2019-06-06 11:00:43,743 [8304] INFO: 192.168.1.128 - - [06/Jun/2019 11:00:43] "POST /action HTTP/1.1" 200 -
+2019-06-06 11:02:06,272 [9712] ERROR: Exception on /action [POST]
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Python27\lib\site-packages\flask_cors\extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "app.py", line 61, in action
+    drinkType = data['drinkType']
+KeyError: 'drinkType'
+2019-06-06 11:02:06,272 [9712] ERROR: Exception on /action [POST]
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\flask\app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Python27\lib\site-packages\flask_cors\extension.py", line 161, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Python27\lib\site-packages\flask\app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "app.py", line 61, in action
+    drinkType = data['drinkType']
+KeyError: 'drinkType'
+2019-06-06 11:02:06,392 [9712] INFO: 192.168.1.128 - - [06/Jun/2019 11:02:06] "POST /action HTTP/1.1" 500 -
+2019-06-06 11:02:06,392 [9712] INFO: 192.168.1.128 - - [06/Jun/2019 11:02:06] "POST /action HTTP/1.1" 500 -
+2019-06-06 11:03:15,559 [10152] INFO: 192.168.1.128 - - [06/Jun/2019 11:03:15] "POST /action HTTP/1.1" 200 -
+2019-06-06 11:03:15,559 [10152] INFO: 192.168.1.128 - - [06/Jun/2019 11:03:15] "POST /action HTTP/1.1" 200 -
+2019-06-06 11:03:16,573 [9224] INFO: 192.168.1.128 - - [06/Jun/2019 11:03:16] "POST /action HTTP/1.1" 200 -
+2019-06-06 11:03:16,573 [9224] INFO: 192.168.1.128 - - [06/Jun/2019 11:03:16] "POST /action HTTP/1.1" 200 -
+2019-06-06 11:04:34,710 [9356] INFO: 192.168.1.128 - - [06/Jun/2019 11:04:34] "POST /action HTTP/1.1" 200 -
+2019-06-06 11:04:34,710 [9356] INFO: 192.168.1.128 - - [06/Jun/2019 11:04:34] "POST /action HTTP/1.1" 200 -
+2019-06-06 11:04:35,717 [9792] INFO: 192.168.1.128 - - [06/Jun/2019 11:04:35] "POST /action HTTP/1.1" 200 -
+2019-06-06 11:04:35,717 [9792] INFO: 192.168.1.128 - - [06/Jun/2019 11:04:35] "POST /action HTTP/1.1" 200 -
+2019-06-06 11:06:37,680 [1728] INFO: 192.168.1.128 - - [06/Jun/2019 11:06:37] "POST /action HTTP/1.1" 200 -
+2019-06-06 11:06:37,680 [1728] INFO: 192.168.1.128 - - [06/Jun/2019 11:06:37] "POST /action HTTP/1.1" 200 -
+2019-06-06 11:06:38,694 [5896] INFO: 192.168.1.128 - - [06/Jun/2019 11:06:38] "POST /action HTTP/1.1" 200 -
+2019-06-06 11:06:38,694 [5896] INFO: 192.168.1.128 - - [06/Jun/2019 11:06:38] "POST /action HTTP/1.1" 200 -
+2019-06-06 11:08:31,608 [7856] INFO: 192.168.1.128 - - [06/Jun/2019 11:08:31] "POST /action HTTP/1.1" 200 -
+2019-06-06 11:08:31,608 [7856] INFO: 192.168.1.128 - - [06/Jun/2019 11:08:31] "POST /action HTTP/1.1" 200 -
+2019-06-06 11:08:32,619 [3772] INFO: 192.168.1.128 - - [06/Jun/2019 11:08:32] "POST /action HTTP/1.1" 200 -
+2019-06-06 11:08:32,619 [3772] INFO: 192.168.1.128 - - [06/Jun/2019 11:08:32] "POST /action HTTP/1.1" 200 -
+2019-06-06 11:12:41,680 [2036] INFO: 192.168.1.128 - - [06/Jun/2019 11:12:41] "POST /action HTTP/1.1" 200 -
+2019-06-06 11:12:41,680 [2036] INFO: 192.168.1.128 - - [06/Jun/2019 11:12:41] "POST /action HTTP/1.1" 200 -
+2019-06-06 11:12:42,694 [1524] INFO: 192.168.1.128 - - [06/Jun/2019 11:12:42] "POST /action HTTP/1.1" 200 -
+2019-06-06 11:12:42,694 [1524] INFO: 192.168.1.128 - - [06/Jun/2019 11:12:42] "POST /action HTTP/1.1" 200 -
+2019-06-06 11:42:47,592 [9456] INFO: 192.168.1.128 - - [06/Jun/2019 11:42:47] "POST /action HTTP/1.1" 200 -
+2019-06-06 11:42:47,592 [9456] INFO: 192.168.1.128 - - [06/Jun/2019 11:42:47] "POST /action HTTP/1.1" 200 -
+2019-06-06 11:42:48,611 [7900] INFO: 192.168.1.128 - - [06/Jun/2019 11:42:48] "POST /action HTTP/1.1" 200 -
+2019-06-06 11:42:48,611 [7900] INFO: 192.168.1.128 - - [06/Jun/2019 11:42:48] "POST /action HTTP/1.1" 200 -
+2019-06-06 11:44:39,562 [8808] INFO: 192.168.1.128 - - [06/Jun/2019 11:44:39] "POST /action HTTP/1.1" 200 -
+2019-06-06 11:44:39,562 [8808] INFO: 192.168.1.128 - - [06/Jun/2019 11:44:39] "POST /action HTTP/1.1" 200 -
+2019-06-06 11:44:40,581 [8952] INFO: 192.168.1.128 - - [06/Jun/2019 11:44:40] "POST /action HTTP/1.1" 200 -
+2019-06-06 11:44:40,581 [8952] INFO: 192.168.1.128 - - [06/Jun/2019 11:44:40] "POST /action HTTP/1.1" 200 -
+2019-06-06 11:48:03,194 [2896] INFO: 192.168.1.128 - - [06/Jun/2019 11:48:03] "POST /action HTTP/1.1" 200 -
+2019-06-06 11:48:03,194 [2896] INFO: 192.168.1.128 - - [06/Jun/2019 11:48:03] "POST /action HTTP/1.1" 200 -
+2019-06-06 11:48:04,213 [7836] INFO: 192.168.1.128 - - [06/Jun/2019 11:48:04] "POST /action HTTP/1.1" 200 -
+2019-06-06 11:48:04,213 [7836] INFO: 192.168.1.128 - - [06/Jun/2019 11:48:04] "POST /action HTTP/1.1" 200 -
+2019-06-06 11:53:19,589 [9436] INFO: 192.168.1.128 - - [06/Jun/2019 11:53:19] "POST /action HTTP/1.1" 200 -
+2019-06-06 11:53:19,589 [9436] INFO: 192.168.1.128 - - [06/Jun/2019 11:53:19] "POST /action HTTP/1.1" 200 -
+2019-06-06 11:53:20,598 [8828] INFO: 192.168.1.128 - - [06/Jun/2019 11:53:20] "POST /action HTTP/1.1" 200 -
+2019-06-06 11:53:20,598 [8828] INFO: 192.168.1.128 - - [06/Jun/2019 11:53:20] "POST /action HTTP/1.1" 200 -
+2019-06-06 14:01:11,000 [1188] INFO: client_count=0
+2019-06-06 14:01:11,000 [1188] INFO: client_count=0
+2019-06-06 14:01:13,730 [11080] INFO: Jun 06 2019 14:01:13 test beginning...
+2019-06-06 14:01:13,730 [11080] INFO: robot.rshd=0
+2019-06-06 14:01:13,746 [11080] INFO:  * Running on http://192.168.1.128:5566/ (Press CTRL+C to quit)
+2019-06-06 14:35:36,282 [11396] INFO: Jun 06 2019 14:35:36 connecting robot...
+2019-06-06 14:35:36,282 [11396] INFO: Jun 06 2019 14:35:36 connecting robot...
+2019-06-06 14:35:36,282 [11396] INFO: robot.rshd=1
+2019-06-06 14:35:36,282 [11396] INFO: robot.rshd=1
+2019-06-06 14:35:36,286 [11396] INFO: ip=192.168.1.106, port=8899
+2019-06-06 14:35:36,286 [11396] INFO: ip=192.168.1.106, port=8899
+2019-06-06 14:35:58,792 [11396] INFO: 192.168.1.128 - - [06/Jun/2019 14:35:58] "POST /action HTTP/1.1" 200 -
+2019-06-06 14:35:58,792 [11396] INFO: 192.168.1.128 - - [06/Jun/2019 14:35:58] "POST /action HTTP/1.1" 200 -
+2019-06-06 14:35:59,812 [9888] INFO: 192.168.1.128 - - [06/Jun/2019 14:35:59] "POST /action HTTP/1.1" 200 -
+2019-06-06 14:35:59,812 [9888] INFO: 192.168.1.128 - - [06/Jun/2019 14:35:59] "POST /action HTTP/1.1" 200 -
+2019-06-06 14:58:16,358 [12232] INFO: 192.168.1.128 - - [06/Jun/2019 14:58:16] "POST /action HTTP/1.1" 200 -
+2019-06-06 14:58:16,358 [12232] INFO: 192.168.1.128 - - [06/Jun/2019 14:58:16] "POST /action HTTP/1.1" 200 -
+2019-06-06 15:16:25,007 [11080] INFO: client_count=0
+2019-06-06 15:16:25,007 [11080] INFO: client_count=0
+2019-06-06 15:16:29,213 [2456] INFO: Jun 06 2019 15:16:29 test beginning...
+2019-06-06 15:16:29,213 [2456] INFO: robot.rshd=0
+2019-06-06 15:16:29,229 [2456] INFO:  * Running on http://192.168.1.128:5566/ (Press CTRL+C to quit)
+2019-06-06 15:16:37,009 [2456] INFO: client_count=0
+2019-06-06 15:17:34,413 [3224] INFO: Jun 06 2019 15:17:34 test beginning...
+2019-06-06 15:17:34,414 [3224] INFO: robot.rshd=0
+2019-06-06 15:17:34,427 [3224] INFO:  * Running on http://192.168.1.128:5566/ (Press CTRL+C to quit)
+2019-06-06 15:17:46,690 [7868] INFO: Jun 06 2019 15:17:46 connecting robot...
+2019-06-06 15:17:46,690 [7868] INFO: Jun 06 2019 15:17:46 connecting robot...
+2019-06-06 15:17:46,693 [7868] INFO: robot.rshd=1
+2019-06-06 15:17:46,693 [7868] INFO: robot.rshd=1
+2019-06-06 15:17:46,693 [7868] INFO: ip=192.168.1.106, port=8899
+2019-06-06 15:17:46,693 [7868] INFO: ip=192.168.1.106, port=8899
+2019-06-06 15:18:10,059 [7868] INFO: 192.168.1.128 - - [06/Jun/2019 15:18:10] "POST /action HTTP/1.1" 200 -
+2019-06-06 15:18:10,059 [7868] INFO: 192.168.1.128 - - [06/Jun/2019 15:18:10] "POST /action HTTP/1.1" 200 -
+2019-06-06 15:18:11,092 [8412] INFO: 192.168.1.128 - - [06/Jun/2019 15:18:11] "POST /action HTTP/1.1" 200 -
+2019-06-06 15:18:11,092 [8412] INFO: 192.168.1.128 - - [06/Jun/2019 15:18:11] "POST /action HTTP/1.1" 200 -
