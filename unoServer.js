@@ -3,13 +3,13 @@ const fs = require('fs');
 const axios = require('axios');
 
 let count = 0
-let timeout = 5 //second
+let timeout = 2 //second
 
 let locationRawData = fs.readFileSync('location.json');  
 let locationJson = JSON.parse(locationRawData)
 const point_home = "85eb913f ec51b8be f704353f f70435bf" // Home
-const point_drink_area_1 = "666666bf 33335340 ec79883c e4f67f3f" // Drink Area 1
-const point_drink_area_2 = "3d0a57bf 48e15a40 ec79883c e4f67f3f" // Drink Area 2
+const point_drink_area_1 = "cdcc4cbf 6666a63f f704353f f704353f" // Drink Area 1
+const point_drink_area_2 = "f6285cbf c3f54840 ec79883c e4f67f3f" // Drink Area 2
 
 let location_home = JSON.parse(JSON.stringify(locationJson));
 location_home.msg_data.data.waypoint_coord = point_home
@@ -104,7 +104,11 @@ module.exports = class UnoServer {
 
     goToChargingPoint() {
         // missions/gorecharge
+        var that = this;
         this.ws.send(JSON.stringify(location_chargingPoint));
+        setTimeout(function() {
+            that.notifyFinish()
+        }, 60 * 1000)
     }
 
     notifyFinish() {

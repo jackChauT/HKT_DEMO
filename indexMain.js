@@ -9,8 +9,8 @@ const UNOServer = require('./unoServer');
 const host = "192.168.1.128"
 const port = 3333
 const armRobotHost = 5566
-const isTesting = true;
-// const armRobotServer = new ARServer(host, armRobotHost);
+const isTesting = false;
+const armRobotServer = new ARServer(host, armRobotHost);
 const unoServer = new UNOServer(host, port);
 let robotArmTimer;
 let onMission = false;
