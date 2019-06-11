@@ -1,11 +1,12 @@
 Open 4 Server sequentally:
 
 Uno Server
-1. fms_base_mark4
+1. hkcustom_tms_msg_broker
+python C:\UNO\hkcustoms\hkcustom_tms_msg_broker\teks_tms_server.py
+
+2. fms_base_mark4
 python C:\UNO\hkcustoms\hkcustom_fms_base_mark4\teks_tms_uno_fms_base_service.py
 
-2. hkcustom_tms_msg_broker
-python C:\UNO\hkcustoms\hkcustom_tms_msg_broker\teks_tms_server.py
 
 3. Robot Arm Server
 python C:\Users\User\Desktop\DEMO\HKT_DEMO\arm_robot\app.py

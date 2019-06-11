@@ -95,6 +95,10 @@ const server = http.createServer(function(request, response) {
                     onMission = false;
                     successResponse(response, "success")
                     break;
+                case "/backToCharge":
+                    goToChargingPoint()
+                    successResponse(response, "success")
+                    break
                 default:
                     successResponse(response, 'wrong api url, maybe POST')
             }
@@ -106,7 +110,6 @@ const server = http.createServer(function(request, response) {
 
 function isOnMission(response) {
     if (onMission) {
-        console.log("Option")
         successResponse(response, 'Mission is on going')
         return true
     }
@@ -114,7 +117,6 @@ function isOnMission(response) {
 
 function isArmRobotOnMission(response) {
     if (armRobotOnMission) {
-        console.log("Option")
         successResponse(response, 'Mission is on going')
         return true
     }
@@ -136,6 +138,7 @@ function drinkAndLocationHandler(drink, isGoToLocation) {
         }, 2 * 1000);
         return
     }
+    if (isGoToLocation) { onMission = true };
     armRobotServer.startPickDrink(drink).then((res, err) => {
         if (typeof err == "undefined") {
             if (res.status == "200") {
@@ -148,6 +151,7 @@ function drinkAndLocationHandler(drink, isGoToLocation) {
         } else {
 
         }
+        
     })
 }
 
@@ -167,6 +171,10 @@ function getPickDrinkResult() {
 
         }
     })
+}
+
+function goToChargingPoint() {
+    unoServer.goToChargingPoint()
 }
 
 function isValidResult(response, data) {
