@@ -141,7 +141,6 @@ function drinkAndLocationHandler(drink, isGoToLocation) {
         setTimeout(function() {
             console.log("Testing")
             armRobotOnMission = false;
-            // unoServer.gotoLocation(location)
         }, 2 * 1000);
         return
     }

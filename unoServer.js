@@ -74,7 +74,6 @@ module.exports = class UnoServer {
                         setTimeout(function() {
                             // go to charging point
                             that.goToChargingPoint()
-                            // that.goToChargingPoint()
                         }, timeout * 1000)
                     } else {
                         that.notifyFinish()
@@ -107,13 +106,7 @@ module.exports = class UnoServer {
                             }
                             last_is_charging = is_charge;
                         }
-
                     }
-                    // if (result.msg_data.data.state == "True") {
-                    //     that.setUnoState(1)
-                    // } else {
-                    //     that.setUnoState(0);
-                    // }
                     break
                 default:
                     console.log(`[Uno Server] ${result.msg_data.api_path}`)
@@ -130,7 +123,7 @@ module.exports = class UnoServer {
         this.ws.send(JSON.stringify(lp));
         this.timer = setInterval(function(ws,lp) {
             ws.send(JSON.stringify(lp));
-        }, 10 * 1000,this.ws, lp);
+        }, 10 * 1000, this.ws, lp);
     }
 
     goToHome() {
@@ -145,12 +138,6 @@ module.exports = class UnoServer {
         this.timer = setInterval(function(ws,lp) {
             ws.send(JSON.stringify(lp));
         }, 10 * 1000, this.ws, location_chargingPoint);
-        // this.timer = setInterval(function() {
-        //     this.ws.send(JSON.stringify(location_chargingPoint));
-        // }, 10 * 1000);
-        // setTimeout(function() {
-        //     that.notifyFinish()
-        // }, 65 * 1000)
     }
 
     notifyFinish() {
