@@ -3,15 +3,15 @@ const fs = require('fs');
 const axios = require('axios');
 
 let count = 0
-let timeout = 2 //second
+let timeout = 3 //second
 
 let last_is_charging = ""
 
 let locationRawData = fs.readFileSync('location.json');  
 let locationJson = JSON.parse(locationRawData)
 const point_home = "85eb913f ec51b8be f704353f f70435bf" // Home
-const point_drink_area_1 = "cdcc4cbf 6666a63f f704353f f704353f" // Drink Area 1
-const point_drink_area_2 = "f6285cbf c3f54840 ec79883c e4f67f3f" // Drink Area 2
+const point_drink_area_1 = "46b66340 39b468bf ea7b393f 0d71303f" // Sofa
+const point_drink_area_2 = "6de7bbbe 9cc4e0be ebc8353f 2940343f" //85eb51be 4260653f 4a093d3f 6aa12c3f Mirror
 
 let location_home = JSON.parse(JSON.stringify(locationJson));
 location_home.msg_data.data.waypoint_coord = point_home
@@ -23,17 +23,18 @@ location_chargingPoint.msg_data.data.waypoint_name = "Charging Point"
 
 let location_drink_area_1 = JSON.parse(JSON.stringify(locationJson));
 location_drink_area_1.msg_data.data.waypoint_coord = point_drink_area_1
-location_drink_area_1.msg_data.data.waypoint_name = "Drink Area 1"
+location_drink_area_1.msg_data.data.waypoint_name = "Drink Area 0"
 
 let location_drink_area_2 = JSON.parse(JSON.stringify(locationJson));
 location_drink_area_2.msg_data.data.waypoint_coord = point_drink_area_2
-location_drink_area_2.msg_data.data.waypoint_name = "Drink Area 2"
+location_drink_area_2.msg_data.data.waypoint_name = "Drink Area 1"
 
 module.exports = class UnoServer { 
     constructor(host, port) {
         this.host = host;
         this.port = port;   
         this.ws = new WebSocket('ws://127.0.0.1:8125/tmsmsg');
+        this.timer = null;
     }
 
     initServer() {
@@ -66,6 +67,7 @@ module.exports = class UnoServer {
                     console.log("[Uno Server] Mission Status: ", result.msg_data.data.status_detail, result.msg_data.data.status_data)            
                     break;
                 case "missions/completed":
+                    that.clearTimer()
                     var completed_point = result.msg_data.data.status_data;
                     console.log("[Uno Server] Arrived", completed_point == point_drink_area_1 ? "Drink Area 1" : "Drink Area 2")
                     if (completed_point == point_drink_area_1 || completed_point == point_drink_area_2) {
@@ -88,7 +90,11 @@ module.exports = class UnoServer {
                     console.log("[Uno Server] Finish")
                     var is_charge = result.msg_data.data.state;
                     if (last_is_charging == "") {
-                        last_is_charging = is_charge;                        
+                        last_is_charging = is_charge;
+                        if (last_is_charging == "False") {
+                            // set to busy
+                            that.setUnoState(0)
+                        }                        
                     } else {
                         if (is_charge != last_is_charging) {
                             // from Charge to not charge
@@ -96,6 +102,7 @@ module.exports = class UnoServer {
                                 // set to busy
                                 that.setUnoState(0)
                             } else {
+                                that.clearTimer()
                                 that.setUnoState(1)
                             }
                             last_is_charging = is_charge;
@@ -116,9 +123,14 @@ module.exports = class UnoServer {
     }
 
     gotoLocation(location) {
+        this.clearTimer()
         count += 1;
         this.isFinishGetDrink = true;
-        this.ws.send(JSON.stringify(location == 0 ? location_drink_area_1 : location_drink_area_2));
+        var lp = location == 0 ? location_drink_area_1 : location_drink_area_2;
+        this.ws.send(JSON.stringify(lp));
+        this.timer = setInterval(function(ws,lp) {
+            ws.send(JSON.stringify(lp));
+        }, 10 * 1000,this.ws, lp);
     }
 
     goToHome() {
@@ -126,9 +138,16 @@ module.exports = class UnoServer {
     }
 
     goToChargingPoint() {
+        this.clearTimer()
         // missions/gorecharge
         var that = this;
         this.ws.send(JSON.stringify(location_chargingPoint));
+        this.timer = setInterval(function(ws,lp) {
+            ws.send(JSON.stringify(lp));
+        }, 10 * 1000, this.ws, location_chargingPoint);
+        // this.timer = setInterval(function() {
+        //     this.ws.send(JSON.stringify(location_chargingPoint));
+        // }, 10 * 1000);
         // setTimeout(function() {
         //     that.notifyFinish()
         // }, 65 * 1000)
@@ -158,5 +177,11 @@ module.exports = class UnoServer {
         .catch((error) => {
             console.log("[Uno Server] setUnoStatus Error")
         })
+    }
+
+    clearTimer() {
+        if (this.timer != null) {
+            clearInterval(this.timer);
+        }
     }
 }

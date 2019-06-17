@@ -11,8 +11,8 @@ app = Flask(__name__, template_folder=tmpl_dir)
 CORS(app)
 on_mission = False
 
-PC_IP = '192.168.1.128'
-AUBO_IP = '192.168.1.106'
+PC_IP = '192.168.66.221'
+AUBO_IP = '192.168.66.117'
 
 aubo = AuboRobotService(AUBO_IP, 8899)
 

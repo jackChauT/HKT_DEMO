@@ -6,7 +6,7 @@ const http = require('http')
 const ARServer = require('./armRobotServer');
 const UNOServer = require('./unoServer');
 
-const host = "192.168.1.128"
+const host = "192.168.66.221"
 const port = 3333
 const armRobotHost = 5566
 const isTesting = false;
@@ -74,7 +74,6 @@ const server = http.createServer(function(request, response) {
                         } else {
                             onMission = false;
                         }
-                        // drinkAndLocationHandler(json.drink_type, false)
                         successResponse(response, "success")
                     })
                     break;
@@ -99,6 +98,14 @@ const server = http.createServer(function(request, response) {
                     goToChargingPoint()
                     successResponse(response, "success")
                     break
+                case "/goPoint0":
+                    goPoint(0)
+                    successResponse(response, "success")
+                break
+                case "/goPoint1":
+                    goPoint(1)
+                    successResponse(response, "success")
+                break
                 default:
                     successResponse(response, 'wrong api url, maybe POST')
             }
@@ -173,6 +180,9 @@ function getPickDrinkResult() {
     })
 }
 
+function goPoint(location) {
+    unoServer.gotoLocation(location)
+}
 function goToChargingPoint() {
     unoServer.goToChargingPoint()
 }
